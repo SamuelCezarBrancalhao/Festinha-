@@ -1,20 +1,61 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <h1>Festinha do Renó</h1>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="limpar()">
+      <ion-icon name="trash"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div class="conteudo">
+
+    <div class="linha">
+      <div class="produto">Criança</div>
+      <div class="mostrador">
+        <ion-button (click)="removerCrianca()">-</ion-button>
+        <input type="number" [(ngModel)]="quantidadeCrianca" (keyup)="calcularTotalConta()">
+        <ion-button (click)="adicionarCrianca()">+</ion-button>
+      </div>
+    </div>
+
+    <div class="linha">
+      <div class="produto">Adulto </div>
+      <div class="mostrador">
+        <ion-button (click)="removerAdulto()">-</ion-button>
+        <input type="number" [(ngModel)]="quantidadeAdulto" (keyup)="calcularTotalConta()">
+        <ion-button (click)="adicionarAdulto()">+</ion-button>
+      </div>
+    </div>
+<Br>
+    <div class="linha">
+      <div class="produto">Salgadinho(un)</div>
+      <div class="mostrador" class="mostrador2">
+
+        {{totalSalgadinho}}
+
+      </div>
+    </div>
+
+    <div class="linha">
+      <div class="produto">Refrigerante(L)</div>
+      <div class="mostrador" class="mostrador2">
+
+        {{totalRefrigerante.toFixed(1)}}
+
+      </div>
+    </div>
+
+    <div class="linha">
+      <div class="produto">Bolo(Kg)</div>
+      <div class="mostrador" class="mostrador2">
+
+        {{totalBolo.toFixed(1)}}
+ 
+      </div>
+    </div>
+<h2>Feliz aniversário Renózinho</h2>
+<img src="../../assets/balao.png" alt="" id="img">
+<img src="../../assets/renozinho.jpg" alt="" id="img1">
   </div>
 </ion-content>
